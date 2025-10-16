@@ -3,3 +3,6 @@ pandas
 matplotlib
 arch
 tqdm
+
+newspaper3k
+selenium
