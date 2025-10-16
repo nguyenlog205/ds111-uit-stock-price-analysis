@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Phân Tích</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Bảng Điều Khiển Chính</h1>
+            <div class="date-range">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>1 Tháng 10, 2025 - 16 Tháng 10, 2025</span>
+            </div>
+        </header>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon revenue">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+                <div class="card-info">
+                    <p>Tổng Doanh Thu</p>
+                    <h3 id="total-revenue">$0</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon orders">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="card-info">
+                    <p>Số Đơn Hàng</p>
+                    <h3 id="total-orders">0</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon customers">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="card-info">
+                    <p>Khách Hàng Mới</p>
+                    <h3 id="new-customers">0</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon volatility">
+                     <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <div class="card-info">
+                    <p>Độ Biến Động (GARCH)</p>
+                    <h3 id="volatility">0.0%</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Phân Tích Doanh Thu Hàng Tuần</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            
+            <div class="recent-activity">
+                <h3>Hoạt Động Gần Đây</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Đơn hàng #1102 đã được giao thành công.</li>
+                    <li><i class="fa-solid fa-user-plus"></i> Một khách hàng mới đã đăng ký: user@example.com</li>
+                    <li><i class="fa-solid fa-triangle-exclamation"></i> Cảnh báo: Lượng truy cập giảm 5%.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Đơn hàng #1101 đã được giao thành công.</li>
+                    <li><i class="fa-solid fa-wallet"></i> Giao dịch mới trị giá $250 từ khách hàng A.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
