@@ -1,10 +1,6 @@
 
 
-|Tên dữ liệu|Loại dữ liệu|Tên file|Nguồn|
-|-|-|-|-|
-**Tỉ giá US-VND**|Chỉ số kinh tế vĩ mô|` Dữ liệu Lịch sử USD_VND.csv`|https://vn.investing.com/currencies/usd-vnd-historical-data|
-|**Dữ liệu Lịch sử Hợp đồng Tương lai Vàng** (đơn vị USD)|Chỉ số kinh tế vĩ mô |`Dữ liệu Lịch sử Hợp đồng Tương lai Vàng.csv`|https://vn.investing.com/commodities/gold-historical-data|
-|**Lãi suất FED**|Chỉ số kinh tế vĩ mô|`a`|https://www.newyorkfed.org/markets/reference-rates/effr|
+## 2. Data Source and Storage
 
 ### 2.1. Macroeconomics Indices
 > Macroeconomics indices are stored in the sub-folder `/macro/`.
@@ -21,3 +17,9 @@
 |Name| Source| Storage File (raw version)|
 |-|-|-|
 |Price per Earning for ICT industry| Simply Wall, https://simplywall.st/markets/vn/tech| `price_per_earning.csv`|
+
+
+### 2.3. FPT Indices
+|Name| Source| Storage File (raw version)|
+|-|-|-|
+|Net Revenue <br> Gross Profit <br> Earnings Before Interest and Taxes <br> Net Profit Attributable to Parent Shareholders | Via `vnstock` Pythonic library (API) |`fpt_income_statement.csv`| 
