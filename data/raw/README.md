@@ -1,4 +1,8 @@
+# DATASET STORAGE
 
+## 1. Folder Description
+
+This folder serves as the data storage, encompassing raw, synthetized and preprocessed.
 
 ## 2. Data Source and Storage
 
