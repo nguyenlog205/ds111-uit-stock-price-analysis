@@ -3,78 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Phân Tích</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard Phân Tích Định Lượng & Kỹ Thuật Chuyên Sâu FPT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="dashboard-container">
         <header class="dashboard-header">
-            <h1>Bảng Điều Khiển Chính</h1>
+            <h1>Phân Tích Định Lượng Cổ Phiếu FPT (VN-Index: 1250)</h1>
             <div class="date-range">
                 <i class="fa-solid fa-calendar-days"></i>
-                <span>1 Tháng 10, 2025 - 16 Tháng 10, 2025</span>
+                <span>Phạm vi Dữ liệu: 1 Năm Gần Nhất (16/10/2024 - 16/10/2025)</span>
             </div>
         </header>
 
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon revenue">
-                    <i class="fa-solid fa-dollar-sign"></i>
-                </div>
+        <div class="cards-grid large-grid">
+            
+            <div class="card main-metric">
+                <div class="card-icon price"><i class="fa-solid fa-money-bill-trend-up"></i></div>
                 <div class="card-info">
-                    <p>Tổng Doanh Thu</p>
-                    <h3 id="total-revenue">$0</h3>
+                    <p>Giá Đóng Cửa Hiện Tại (VNĐ)</p>
+                    <h3 id="close-price">0 VNĐ</h3>
+                    <span class="trend up" id="daily-change-percent"><i class="fa-solid fa-caret-up"></i> +0.00%</span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-icon orders">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
+                <div class="card-icon volume"><i class="fa-solid fa-chart-bar"></i></div>
                 <div class="card-info">
-                    <p>Số Đơn Hàng</p>
-                    <h3 id="total-orders">0</h3>
+                    <p>Khối Lượng TB (10 Ngày)</p>
+                    <h3 id="avg-volume">0</h3>
+                    <span class="unit">cổ phiếu</span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-icon customers">
-                    <i class="fa-solid fa-users"></i>
-                </div>
+                <div class="card-icon beta"><i class="fa-solid fa-handshake-angle"></i></div>
                 <div class="card-info">
-                    <p>Khách Hàng Mới</p>
-                    <h3 id="new-customers">0</h3>
+                    <p>Hệ Số BETA (Rủi ro H.thống)</p>
+                    <h3 id="beta-value">0.0</h3>
+                    <span class="unit" id="beta-risk-level">Thấp hơn Thị trường</span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-icon volatility">
-                     <i class="fa-solid fa-arrow-trend-up"></i>
-                </div>
+                <div class="card-icon volatility"><i class="fa-solid fa-wave-square"></i></div>
                 <div class="card-info">
-                    <p>Độ Biến Động (GARCH)</p>
-                    <h3 id="volatility">0.0%</h3>
+                    <p>Biến Động Thường Niên (252 Ngày)</p>
+                    <h3 id="volatility-value">0.00%</h3>
+                    <span class="unit">Rủi ro tương đối</span>
                 </div>
             </div>
         </div>
 
-        <div class="charts-section">
-            <div class="chart-container">
-                <h3>Phân Tích Doanh Thu Hàng Tuần</h3>
-                <canvas id="revenueChart"></canvas>
+        <div class="charts-section top-charts">
+            
+            <div class="chart-container chart-candlestick">
+                <h3>Biểu Đồ Nến & Phân Tích Kỹ Thuật (Chỉ báo MACD tích hợp)</h3>
+                <div id="candlestickChartPlaceholder" style="height: 450px; display: flex; align-items: center; justify-content: center; background-color: #f9f9f9;">
+                    [Nơi tích hợp Biểu đồ Nến Chuyên nghiệp (TradingView/ApexCharts)]
+                </div>
             </div>
             
-            <div class="recent-activity">
-                <h3>Hoạt Động Gần Đây</h3>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Đơn hàng #1102 đã được giao thành công.</li>
-                    <li><i class="fa-solid fa-user-plus"></i> Một khách hàng mới đã đăng ký: user@example.com</li>
-                    <li><i class="fa-solid fa-triangle-exclamation"></i> Cảnh báo: Lượng truy cập giảm 5%.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Đơn hàng #1101 đã được giao thành công.</li>
-                    <li><i class="fa-solid fa-wallet"></i> Giao dịch mới trị giá $250 từ khách hàng A.</li>
-                </ul>
+            <div class="fundamental-news-panel">
+                <div class="stock-fundamentals">
+                    <h3>📊 Phân Tích Cơ Bản (Fundamental)</h3>
+                    <ul class="stock-info-list">
+                        <li><i class="fa-solid fa-building-columns"></i> **P/E Trailing:** <span id="pe-ratio">28.5x</span></li>
+                        <li><i class="fa-solid fa-box-open"></i> **P/B Ratio:** <span id="pb-ratio">5.2x</span></li>
+                        <li><i class="fa-solid fa-money-check-dollar"></i> **Lợi nhuận gộp (Margin):** <span id="gross-margin">45.0%</span></li>
+                        <li><i class="fa-solid fa-chart-line"></i> **Tăng Trưởng Doanh Thu (YoY):** <span id="revenue-growth">+18.0%</span></li>
+                        <li><i class="fa-solid fa-hand-holding-dollar"></i> **Tỷ Lệ Nợ/Vốn CSH (D/E):** <span id="debt-equity">0.4x</span></li>
+                    </ul>
+                </div>
+
+                <div class="recent-news">
+                    <h3>📰 Tin Tức & Sự Kiện FPT Gần Nhất</h3>
+                    <ul class="news-list">
+                        <li><i class="fa-solid fa-calendar-alt"></i> 15/10: FPT hoàn thành mua lại cổ phiếu quỹ.</li>
+                        <li><i class="fa-solid fa-cloud-arrow-up"></i> 05/10: Hợp đồng Cloud lớn tại thị trường Nhật Bản.</li>
+                        <li><i class="fa-solid fa-bell"></i> 28/09: Thông báo ngày chốt quyền chia cổ tức 10%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-section bottom-charts">
+            
+            <div class="chart-container third-width">
+                <h3>Chỉ Báo Stochastic Oscillator (14, 3, 3)</h3>
+                <canvas id="stochasticChart"></canvas>
+            </div>
+
+            <div class="chart-container third-width">
+                <h3>Chỉ Báo Sức Mạnh Tương Đối RSI (14)</h3>
+                <canvas id="rsiChart"></canvas>
+            </div>
+
+            <div class="data-table third-width signal-panel">
+                <h3>TỔNG HỢP TÍN HIỆU ĐỊNH LƯỢNG</h3>
+                <div class="signal-summary">
+                    <div class="signal-item">
+                        <p>Trung Bình Động (MA)</p>
+                        <span class="signal-result" id="ma-signal">Mạnh Mua</span>
+                    </div>
+                    <div class="signal-item">
+                        <p>Stochastic (Quá mua/Quá bán)</p>
+                        <span class="signal-result" id="stochastic-signal">Bán</span>
+                    </div>
+                    <div class="signal-item">
+                        <p>MACD (Cắt lên/Cắt xuống)</p>
+                        <span class="signal-result" id="macd-signal">Mua</span>
+                    </div>
+                    <div class="signal-item">
+                        <p>Phân tích ADX (Sức mạnh xu hướng)</p>
+                        <span class="signal-result" id="adx-signal-text">Xu hướng Mạnh</span>
+                    </div>
+                    <hr>
+                    <div class="signal-item final-signal">
+                        <p>QUYẾT ĐỊNH CUỐI CÙNG</p>
+                        <span class="signal-final strong-buy" id="final-decision">MẠNH MUA</span>
+                    </div>
+                </div>
             </div>
         </div>
 
